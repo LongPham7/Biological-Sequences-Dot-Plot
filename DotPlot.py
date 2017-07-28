@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import pylab
 
-def alignSequences():
-    """Create a dot plot of the two DNA sequences specified by the user"""
+def align_sequences():
+    """Create a dot matrix of the two DNA sequences specified by the user"""
     window = 1
     seq_one = firstSeq.get()
     seq_two = secondSeq.get()
@@ -14,23 +14,23 @@ def alignSequences():
     pylab.imshow(data)
     pylab.xlabel("%s (length %i bp)" % ("First sequence", len(seq_one)))
     pylab.ylabel("%s (length %i bp)" % ("Second sequence", len(seq_two)))
-    pylab.title("Dot plot using window size %i" % window)
+    pylab.title("Dot matrix using window size %i" % window)
     pylab.show()
 
 root = Tk()
-root.title ('Bioinformatics Dot Plot')
+root.title ('Bioinformatics Dot Matrix')
 frame = ttk.Frame(root)
 
 firstSeq = StringVar()
 secondSeq = StringVar()
 
-# Widgests in the control frame
+# Widgets in the control frame
 label1 = ttk.Label(frame, text = 'Specify two DNA sequneces with bases A, T, G, and C')
 label2 = ttk.Label(frame, text = 'First sequence')
 label3 = ttk.Label(frame, text = 'Second sequence')
 entry1 = ttk.Entry(frame, textvariable = firstSeq)
 entry2 = ttk.Entry(frame, textvariable = secondSeq)
-button = ttk.Button(frame, text = 'Dot plot', command = alignSequences)
+button = ttk.Button(frame, text = 'Dot matrix', command = align_sequences)
 
 frame.grid(column = 0, row = 0)
 label1.grid(column = 0, row = 0, columnspan = 2)
