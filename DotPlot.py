@@ -19,7 +19,7 @@ def align_sequences():
 
 root = Tk()
 root.title ('Bioinformatics Dot Matrix')
-frame = ttk.Frame(root)
+frame = ttk.Frame(root, padding = 10)
 
 firstSeq = StringVar()
 secondSeq = StringVar()
@@ -34,10 +34,13 @@ button = ttk.Button(frame, text = 'Dot matrix', command = align_sequences)
 
 frame.grid(column = 0, row = 0)
 label1.grid(column = 0, row = 0, columnspan = 2)
-label2.grid(column = 0, row = 1)
-label3.grid(column = 0, row = 2)
+label2.grid(column = 0, row = 1, sticky = W)
+label3.grid(column = 0, row = 2, sticky = W)
 entry1.grid(column = 1, row = 1)
 entry2.grid(column = 1, row = 2)
 button.grid(column = 2, row = 2)
+
+for child in frame.winfo_children(): 
+    child.grid_configure(padx = 3, pady = 3)
 
 root.mainloop()
